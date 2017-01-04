@@ -6,10 +6,7 @@ var scroller = Scroll.scroller;
 var scroll = Scroll.animateScroll;
 
 var Webpage = function(props){
-	if(props.direction === 'left'){
-		return <Element name="left" className = "webPage col-12 left"></Element>;
-	}
-	else if(props.direction === 'right'){
+	if(props.direction === 'right'){
 		return <Element name="right" className = "webPage col-12 right"></Element>;
 	}
 	else if(props.direction === 'bottom'){

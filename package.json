@@ -64,11 +64,14 @@
     "classnames": "^2.2.5",
     "dragscroll": "0.0.8",
     "isomorphic-fetch": "^2.2.1",
+    "normalize.css": "^5.0.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-motion": "^0.4.7",
     "react-redux": "^4.4.5",
     "react-scroll": "^1.4.4",
     "react-scroll-box": "^0.3.3-beta",
+    "react-scroll-horizontal": "0.0.7",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
   }

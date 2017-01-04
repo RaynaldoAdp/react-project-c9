@@ -1,27 +1,27 @@
-var RENDER_LEFT = 'RENDER_LEFT'
-var renderLeft = function(){
+var RENDER_MENU1 = 'RENDER_MENU1'
+var renderMenu1 = function(){
 	return{
-		type: RENDER_LEFT
+		type: RENDER_MENU1
 	}
 }
 
-var RENDER_RIGHT = 'RENDER_RIGHT'
-var renderRight = function(){
+var RENDER_MENU2 = 'RENDER_MENU2'
+var renderMenu2 = function(){
 	return{
-		type: RENDER_RIGHT
+		type: RENDER_MENU2
 	}
 }
 
-var RENDER_BOTTOM = 'RENDER_BOTTOM'
-var renderBottom = function(){
+var RENDER_MENU3 = 'RENDER_MENU3'
+var renderMenu3 = function(){
 	return{
-		type: RENDER_BOTTOM
+		type: RENDER_MENU3
 	}
 }
 
-exports.RENDER_LEFT = RENDER_LEFT;
-exports.renderLeft = renderLeft;
-exports.RENDER_RIGHT = RENDER_RIGHT;
-exports.renderRight = renderRight;
-exports.RENDER_BOTTOM = RENDER_BOTTOM;
-exports.renderBottom = renderBottom;
+exports.RENDER_MENU1 = RENDER_MENU1;
+exports.renderMenu1 = renderMenu1;
+exports.RENDER_MENU2 = RENDER_MENU2;
+exports.renderMenu2 = renderMenu2;
+exports.RENDER_MENU3 = RENDER_MENU3;
+exports.renderMenu3 = renderMenu3;

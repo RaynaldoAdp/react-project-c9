@@ -6,80 +6,42 @@
 }
 
 body{
-	background-color: red;
 
 }
 
-.formContainer{
-	position: relative;
-	background-color: green;
-	left: 33vw;
-	width: 33vw;
-}
-
-.formContainer h3{
-	text-align: center;
-}
-
-.formContainer input{
-	width: 30vw;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.formContainer label{
-	text-align: center;
-}
-
-.formContainer button{
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.right{
-	float: right;
-}
-
-.bottom{
-	position: relative;
-	top: 96vh;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}
 
 .webPage{
 	width: 100vw;
 	height: 100vh;
-	background-color: black;
 }
 
 .mainPage{
-	position: absolute;
 	top:0;
+	width: 100vw;
+	height: 100vh;
+	background-color: red;
+}
+
+.noMenu{
 	width: 100vw;
 	height: 100vh;
 }
 
-.mainPageAfterRight{
-	position: absolute;
-	top:0;
-	right: 100vw;
-	width: 100vw;
+.menu1{
+	width:300vw;
 	height: 100vh;
+	background-color: green;
 }
 
-.mainContainer{
-	width: 100vw;
-	max-height: 100vh;
+.menu2{
+	width:300vw;
+	height: 100vh;
+	background-color: yellow;
 }
 
-.mainContainerRight{
-	width:200vw;
-	max-height: 100vh;
+.menu3{
+	width:300vw;
+	height: 100vh;
+	background-color: red;
 }
 
-.mainContainerBottom{
-	width: 100vw;
-	max-height: 100vh;
-}

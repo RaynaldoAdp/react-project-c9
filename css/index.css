@@ -1,0 +1,85 @@
+*{
+	border: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: red;
+
+}
+
+.formContainer{
+	position: relative;
+	background-color: green;
+	left: 33vw;
+	width: 33vw;
+}
+
+.formContainer h3{
+	text-align: center;
+}
+
+.formContainer input{
+	width: 30vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.formContainer label{
+	text-align: center;
+}
+
+.formContainer button{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.right{
+	float: right;
+}
+
+.bottom{
+	position: relative;
+	top: 96vh;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.webPage{
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+}
+
+.mainPage{
+	position: absolute;
+	top:0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.mainPageAfterRight{
+	position: absolute;
+	top:0;
+	right: 100vw;
+	width: 100vw;
+	height: 100vh;
+}
+
+.mainContainer{
+	width: 100vw;
+	max-height: 100vh;
+}
+
+.mainContainerRight{
+	width:200vw;
+	max-height: 100vh;
+}
+
+.mainContainerBottom{
+	width: 100vw;
+	max-height: 100vh;
+}

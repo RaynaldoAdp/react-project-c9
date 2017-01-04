@@ -3,12 +3,17 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	overflow-y: hidden;
 }
 
 body{
 
 }
 
+/*this is to still get scrolling effect but dont show scrollbars*/
+::-webkit-scrollbar { 
+    display: none; 
+}
 
 .webPage{
 	width: 100vw;

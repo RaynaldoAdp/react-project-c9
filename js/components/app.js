@@ -7,6 +7,7 @@ var classNames = require('classnames');
 var Form = require('./form');
 var Button = require('./button');
 var Webpage = require('./webpage');
+var TrackDisplay = require('./trackDisplay');
 
 //cosmetic purposes
 import HorizontalScroll from 'react-scroll-horizontal';
@@ -17,6 +18,7 @@ var App = React.createClass({
 
 	},
 	renderMenu1 : function(){
+		this.props.dispatch(actions.getPopularTracks());
 		this.props.dispatch(actions.renderMenu1());
 	},
 	renderMenu2 : function(){
@@ -32,6 +34,10 @@ var App = React.createClass({
       		'menu2': this.props.state[0].menu2,
       		'menu3': this.props.state[0].menu3
    		});
+   		
+   		var content = this.props.state[0].cover.map(function(data, index){
+   			return <TrackDisplay image={data.image} track={data.track} key={index} />;	
+   		});
 
 /*   		var button1 = function(){return <Button onClick = {this.renderMenu1} description = "Menu 1" />;};
    		var button2 = function(){return <Button onClick = {this.renderMenu2} description = "Menu 2" />;};
@@ -40,11 +46,12 @@ var App = React.createClass({
 		return(
 			<HorizontalScroll>
 			<div className={mainContainerClass}>
-				<div className ="mainPage">
 					<Button onClick = {this.renderMenu1} description = "Menu 1" />
 					<Button onClick = {this.renderMenu2} description = "Menu 2" />
 					<Button onClick = {this.renderMenu3} description = "Menu 3" />
-				</div>	
+				<div className='row'>
+					{content}
+				</div>
 			</div>
 			</HorizontalScroll>
 		);

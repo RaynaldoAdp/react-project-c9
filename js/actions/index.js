@@ -85,9 +85,13 @@ var getFeaturedTracks = function() {
         .then(function(data) {
             var featuredTrack = [];
             for(var i=0; i<3; i++){
-                featuredTrack.push(data.results[i].album_image);
-                featuredTrack.push(data.results[i].audio);                
+                featuredTrack[i] = [];
+                featuredTrack[i].push(data.results[i].album_image);
+                featuredTrack[i].push(data.results[i].audio);
+                featuredTrack[i].push(data.results[i].name);
+                featuredTrack[i].push(data.results[i].artist_name);
             }
+            console.log(featuredTrack);
             return dispatch(
                 getFeaturedTracksSuccess(featuredTrack)
             );
@@ -120,8 +124,11 @@ var getPopularTracks = function() {
         .then(function(data) {
             var popularTrack = [];
             for(var i=0; i<3; i++){
-                popularTrack.push(data.results[i].album_image);
-                popularTrack.push(data.results[i].audio);                
+                popularTrack[i] = [];
+                popularTrack[i].push(data.results[i].album_image);
+                popularTrack[i].push(data.results[i].audio);
+                popularTrack[i].push(data.results[i].name);
+                popularTrack[i].push(data.results[i].artist_name);
             }
             return dispatch(
                 getPopularTracksSuccess(popularTrack)
@@ -155,8 +162,11 @@ var getMostDownloadTracks = function() {
         .then(function(data) {
             var mostDownloadTrack = [];
             for(var i=0; i<3; i++){
-                mostDownloadTrack.push(data.results[i].album_image);
-                mostDownloadTrack.push(data.results[i].audio);                
+                mostDownloadTrack[i] = [];
+                mostDownloadTrack[i].push(data.results[i].album_image);
+                mostDownloadTrack[i].push(data.results[i].audio);
+                mostDownloadTrack[i].push(data.results[i].name);
+                mostDownloadTrack[i].push(data.results[i].artist_name);
             }
             return dispatch(
                 getMostDownloadTracksSuccess(mostDownloadTrack)

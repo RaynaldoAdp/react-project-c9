@@ -10,6 +10,10 @@ body{
   max-width: 200vw;
 }
 
+p, h1{
+  color: white;
+}
+
 /*this is to still get scrolling effect but dont show scrollbars*/
 ::-webkit-scrollbar { 
     display: none; 
@@ -26,13 +30,27 @@ body{
   text-align: center;
 }
 
+.infoPage p{
+  position: relative;
+  top: 10vh;
+}
+
 .infoPage img{
+  width: 80vw;
+  position:relative;
   display:block;
   margin-left: auto;
   margin-right: auto;
+  top: 10vh;
 }
 
 .noMenu{
+	background-image: linear-gradient(
+      	            to bottom,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                    ), url("../assets/images/concert.jpeg");
+	background-size: cover;  
 	width: 100vw;
 	height: 100vh;
 }
@@ -40,21 +58,33 @@ body{
 .menu1{
 	width:200vw;
 	height: 100vh;
-	background-image: url("../assets/images/image1.jpg");
+	background-image: linear-gradient(
+      	            to bottom,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                    ), url("../assets/images/player.jpg");
 	background-size: cover;
 }
 
 .menu2{
 	width:200vw;
 	height: 100vh;
-	background-image: url("../assets/images/image1x.jpg");
+	background-image: linear-gradient(
+      	            to bottom,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                    ), url("../assets/images/image1x.jpg");
 	background-size: cover;
 }
 
 .menu3{
 	width:200vw;
 	height: 100vh;
-	background-image: url("../assets/images/image1.jpeg");
+	background-image: linear-gradient(
+      	            to bottom,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                    ), url("../assets/images/cdcovers.jpg");
 	background-size: cover;
 }
 
@@ -137,6 +167,10 @@ body{
     text-decoration: underline;
 }
 
+.tracks p {
+  text-align: center;
+}
+
 /*////////////////////////////////////////////////////////////////////////////////////*/
 
 @media only screen and (min-width: 640px) { 
@@ -146,6 +180,17 @@ body{
       height: 300px;
       border: 3px solid black; 
   }
+  
+  .infoPage img{
+      width: 40vw;
+      position:relative;
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      top: 10vh;
+}
+  
+  
 }
 
 @-webkit-keyframes bounce {

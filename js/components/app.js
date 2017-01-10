@@ -13,10 +13,13 @@ var TrackDisplay = require('./trackDisplay');
 import HorizontalScroll from 'react-scroll-horizontal';
 
 //template for infoPage
-var menu0Template = 'Get your daily dose of music here! Pick from one menu and get different tracks:<br>' +
-					'Menu1: Featured tracks handpicked by the Jamendo team<br>' +
-					'Menu2: Popular tracks voted by the public<br>' +
-					'Menu3: Most downloaded tracks';
+var mainPage1 = 'Get your daily dose of music here! Pick from one menu and get different tracks:';
+
+var mainPage2 =	'Menu1: Featured tracks handpicked by the Jamendo team';
+					
+var mainPage3 = 'Menu2: Popular tracks voted by the public';
+					
+var mainPage4 = 'Menu3: Most downloaded tracks';
 
 var menu1Template = 'Featured tracks handpicked by the Jamendo team';
 
@@ -43,7 +46,7 @@ var Page1 = function(props){
 		return <InfoPage text={menu3Template} image={jamendo} arrow={arrow} acknowledgement={acknowledgement} />;
 	}
 	else{
-		return <InfoPage text={menu0Template} />;
+		return <InfoPage text={mainPage1} text1 ={mainPage2} text2={mainPage3} text3={mainPage4} />;
 	}
 }
 
@@ -88,7 +91,7 @@ var App = React.createClass({
    		}*/
    		
    		var content = this.props.state[0].cover.map(function(data, index){
-   			return <TrackDisplay image={data.image} track={data.track} key={index} />;	
+   			return <TrackDisplay image={data.image} track={data.track} key={index} name={data.name} artist={data.artist} />;	
    		});
 
 /*   		var button1 = function(){return <Button onClick = {this.renderMenu1} description = "Menu 1" />;};

@@ -120,72 +120,6 @@ h1, p, button, select{
   font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
 }
 
-.buttonContainer{
-  position: absolute;
-  top: 0;
-}
-
-.svg .button {
-		text-decoration: none;
-		color: #fff;
-		position: relative;
-		display: inline-block;
-		width: 130px;
-		height: 40px;
-		margin: 20px;
-		overflow: hidden;
-}
-
-.svg .button rect {
-		position: absolute;
-		top: 0;
-		left: 0;
-		stroke-width: 4px;
-		stroke-dashoffset: 400px;
-		stroke: olivedrab;
-}
-
-.svg .button span {
-		color: olivedrab;
-		width: 130px;
-		height: 40px;
-		display: inline-block;
-		text-align: center;
-		position: absolute;
-		left: 0;
-		top: 0;
-		line-height: 40px;
-		transition: all .2s linear;
-}
-
-.svg .button span:hover {
-		color: #fff;
-		background: olivedrab;
-		transition: all 1s cubic-bezier(1.25s 0, 1.15, 1, 1);
-		transition-delay: .5s;
-}
-
-.svg .button:hover rect {
-		animation: draw1 .75s linear forwards;
-}
-
-@keyframes draw1 {
-		0% {
-				stroke-dasharray: 300;
-				stroke-dashoffset: 700;
-				stroke-width: 4px;
-		}
-		75% {
-				stroke-dasharray: 900;
-				stroke-width: 1px;
-		}
-		100% {
-				stroke-dasharray: 900;
-				stroke-width: 1px;
-		}
-}
-
-
 /*this is the part about the music container*/
 .cover {
     background-size: cover;
@@ -235,9 +169,15 @@ h1, p, button, select{
   text-align: center;
 }
 
+.queryPageContainer{
+  position: relative;
+  top: 20vh;
+}
+
 .queryPageDescription{
     text-align: center;
-    margin-top: 7.5vh;
+    margin-top: 5vh;
+    font-size: 1.5em;
 }
 
 .queryPage select{
@@ -271,7 +211,39 @@ h1, p, button, select{
     box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    } 
+} 
+
+.buttonClass1{
+  position: absolute;
+  top: 1vh;
+  right: 0;
+  display: flex;
+  height: 10vh;
+  width: 70vw;
+}
+
+.buttonClass2{
+  position: absolute;
+  top: 0;
+}
+
+.navigationButton{
+  display: block;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+  color: black;
+  cursor: pointer;
+  padding: 1vh;
+  max-width: 17vw;
+  font-size: 0.5em;
+  margin: 1vh;
+}    
 
 /*////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -298,6 +270,38 @@ h1, p, button, select{
       top: 5vh;
       font-size: 2em
   }
+  
+  .queryPageDescription{
+      font-size: 2em
+  }
+  
+  .buttonClass1, .buttonClass2{
+    width: 30vw;
+    position: absolute;
+    top: 1vh;
+    right: 0;
+    height: 10vh;
+    display: flex;
+  }  
+  
+.navigationButton{
+    display: block;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    color: black;
+    cursor: pointer;
+    padding: 1vh;
+    margin: 1vh;
+    display: inline-block;
+    float: right;
+    font-size: 0.75em;
+}    
   
   
 }

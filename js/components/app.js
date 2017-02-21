@@ -26,7 +26,7 @@ var MainMenu = function(props){
 		return (<h1 className="pageDescription">Most Downloaded Tracks</h1>)
 	}
 	else if(status.menu4){
-		return (<div>
+		return (<div className="queryPageContainer">
 					<h1 className="queryPageDescription">Not satisfied with the choices you get so far?</h1>
 					<h1 className="queryPageDescription">Find your music through this selection</h1>
 					<QueryPage />
@@ -58,8 +58,18 @@ var App = React.createClass({
 		this.props.dispatch(actions.renderMenu4());
 	},
 	render: function(){
+		var buttonClass;
+   		if(!this.props.state[0].menu1 && !this.props.state[0].menu2 && !this.props.state[0].menu3 && !this.props.state[0].menu4 && !this.props.state[0].postMenu4){
+   			buttonClass = "buttonClass1";
+   		}
+   		else if(this.props.state[0].menu4){
+   			buttonClass = "buttonClass1";
+   		}
+   		else{
+   			buttonClass = "buttonClass2";
+   		}
+		
 		var content;
-   		
    		if(this.props.state[0].menu1 || this.props.state[0].menu2 || this.props.state[0].menu3 || this.props.state[0].postMenu4){
 	   		content = this.props.state[0].cover.map(function(data, index){
 	   				return <TrackDisplay image={data.image} track={data.track} key={index} name={data.name} artist={data.artist} />;
@@ -79,7 +89,7 @@ var App = React.createClass({
 						{content}
 					</div>
 				</div>
-				<div className="buttonContainer">
+				<div className={buttonClass}>
 					<Button onClick = {this.renderMenu1} description = "Featured Tracks" />
 					<Button onClick = {this.renderMenu2} description = "Popular Tracks" />
 					<Button onClick = {this.renderMenu3} description = "Most Download Tracks" />

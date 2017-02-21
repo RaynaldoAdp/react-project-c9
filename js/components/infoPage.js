@@ -1,32 +1,17 @@
 var React = require ('react');
 
-var WheelAnimation = function(){
-		return(
-		    <div className="wheelAnimation">
-                <span className="scroll-btn">
-                		<span className="mouse">
-                			<span>
-                			</span>
-                		</span>
-                </span>
-                <p>Scroll Mouse</p>
-			</div>
-		)
-}	
-
-var InfoPage = function(props){
-		return(
-			<div className="infoPage">
-				<h1>{props.text}</h1>
-				<p>{props.text1}</p>
-				<p>{props.text2}</p>
-				<p>{props.text3}</p>
-				<WheelAnimation />
-				<div className ={props.arrow}> </div>
-				<p>{props.acknowledgement}</p>
-				<img src={props.image} />
-			</div>
-		)
+var InfoPage = function(){
+	return(
+		<div className="infoPage">
+			<h1>Get your daily dose of music here!</h1>
+			<h1>Pick from one menu and get different tracks:</h1>
+			<p>Featured tracks handpicked by the Jamendo team</p>
+			<p>The most popular tracks voted by the public</p>
+			<p>The Most downloaded tracks</p>
+			<p>Still not satisfied? you can select from the different options given for you</p>
+			<img className ="logo" src='http://www.userlogos.org/files/logos/43932_aleksandr009/jamendo_3.png?1451132005'/>
+		</div>
+	)
 }		
 
 module.exports = InfoPage;

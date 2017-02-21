@@ -8,53 +8,39 @@ var Form = require('./form');
 var Button = require('./button');
 var InfoPage = require('./infoPage');
 var TrackDisplay = require('./trackDisplay');
-var wheelAnimation = require('./wheelAnimation');
-
-//cosmetic purposes
-import HorizontalScroll from 'react-scroll-horizontal';
-
-//template for infoPage
-var mainPage1 = 'Get your daily dose of music here! Pick from one menu and get different tracks:';
-
-var mainPage2 =	'Menu1: Featured tracks handpicked by the Jamendo team';
-					
-var mainPage3 = 'Menu2: Popular tracks voted by the public';
-					
-var mainPage4 = 'Menu3: Most downloaded tracks';
-
-var menu1Template = 'Featured tracks handpicked by the Jamendo team';
-
-var menu2Template = 'Popular tracks voted by the public';
-
-var menu3Template = 'Most downloaded tracks';
-
-var acknowledgement = 'Powered by:';
-
-var jamendo = 'http://www.userlogos.org/files/logos/43932_aleksandr009/jamendo_3.png?1451132005';
-
-var arrow = 'arrow bounce';
+var QueryPage = require('./queryPage');
 
 //page1 component
-var Page1 = function(props){
+var MainMenu = function(props){
 	var status = props.status;
-	if(status.menu1){
-		return <InfoPage text={menu1Template} image={jamendo} arrow={arrow} acknowledgement={acknowledgement} />;
+	if(!status.menu1 && !status.menu2 && !status.menu3 && !status.menu4 && !status.postMenu4){
+		return <InfoPage />;
+	}
+	else if(status.menu1){
+		return (<h1 className="pageDescription">Featured Tracks</h1>)
 	}
 	else if(status.menu2){
-		return <InfoPage text={menu2Template} image={jamendo} arrow={arrow} acknowledgement={acknowledgement} />;
+		return (<h1 className="pageDescription">Popular Tracks</h1>)
 	}
 	else if(status.menu3){
-		return <InfoPage text={menu3Template} image={jamendo} arrow={arrow} acknowledgement={acknowledgement} />;
+		return (<h1 className="pageDescription">Most Downloaded Tracks</h1>)
 	}
-	else{
-		return <InfoPage text={mainPage1} text1 ={mainPage2} text2={mainPage3} text3={mainPage4} />;
+	else if(status.menu4){
+		return (<div>
+					<h1 className="queryPageDescription">Not satisfied with the choices you get so far?</h1>
+					<h1 className="queryPageDescription">Find your music through this selection</h1>
+					<QueryPage />
+				</div>
+		)
+	}
+	else if(status.postMenu4){
+		return (<h1 className="pageDescription">As You Wish =)</h1>)
 	}
 }
 
 //the main component App
 var App = React.createClass({
 	componentDidUpdate: function(){
-
 	},
 	renderMenu1 : function(){
 		this.props.dispatch(actions.getFeaturedTracks());
@@ -68,53 +54,38 @@ var App = React.createClass({
 		this.props.dispatch(actions.getMostDownloadTracks());
 		this.props.dispatch(actions.renderMenu3());
 	},
+	renderMenu4: function(){
+		this.props.dispatch(actions.renderMenu4());
+	},
 	render: function(){
-        var mainContainerClass = classNames({
-        	'noMenu' : !this.props.state[0].menu1 && !this.props.state[0].menu2 && !this.props.state[0].menu3,
-      		'menu1': this.props.state[0].menu1,
-      		'menu2': this.props.state[0].menu2,
-      		'menu3': this.props.state[0].menu3
-   		});
+		var content;
    		
-/*   		var page1 = function(){
-   			if(this.props.state[0].menu1){
-   				return <InfoPage text={menu1Template} />;
-   			}
-   			else if(this.props.state[0].menu2){
-   				return <InfoPage text={menu2Template} />;
-   			}
-   			else if(this.props.state[0].menu3){
-   				return <InfoPage text={menu3Template} />;
-   			}
-   			else{
-   				return <InfoPage text={menu0Template} />;
-   			}
-   		}*/
-   		
-   		var content = this.props.state[0].cover.map(function(data, index){
-   			return <TrackDisplay image={data.image} track={data.track} key={index} name={data.name} artist={data.artist} />;	
-   		});
+   		if(this.props.state[0].menu1 || this.props.state[0].menu2 || this.props.state[0].menu3 || this.props.state[0].postMenu4){
+	   		content = this.props.state[0].cover.map(function(data, index){
+	   				return <TrackDisplay image={data.image} track={data.track} key={index} name={data.name} artist={data.artist} />;
+	   		})
+		}
+		else{
+			content = function(){
+				return <empty />
+			}
+		}
 
-/*   		var button1 = function(){return <Button onClick = {this.renderMenu1} description = "Menu 1" />;};
-   		var button2 = function(){return <Button onClick = {this.renderMenu2} description = "Menu 2" />;};
-   		var button3 = function(){return <Button onClick = {this.renderMenu3} description = "Menu 3" />;};
-*/
 		return(
 			<div>
-			<HorizontalScroll>
-			<div className={mainContainerClass}>
-				<Page1 status={this.props.state[0]} />
-				<div className='row'>
-					{content}
+				<div className="mainContainer">
+					<MainMenu status = {this.props.state[0]} /> 
+					<div className='row'>
+						{content}
+					</div>
 				</div>
-			</div>
-			</HorizontalScroll>
-			<div className="buttonContainer">
-				<Button onClick = {this.renderMenu1} description = "Menu 1" />
-				<Button onClick = {this.renderMenu2} description = "Menu 2" />
-				<Button onClick = {this.renderMenu3} description = "Menu 3" />
-			</div>
-			</div>
+				<div className="buttonContainer">
+					<Button onClick = {this.renderMenu1} description = "Featured Tracks" />
+					<Button onClick = {this.renderMenu2} description = "Popular Tracks" />
+					<Button onClick = {this.renderMenu3} description = "Most Download Tracks" />
+					<Button onClick = {this.renderMenu4} description = "Make Your Own Choice!" />
+				</div>
+			</div>			
 		);
 	}
 });

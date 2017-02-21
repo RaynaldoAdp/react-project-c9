@@ -8,6 +8,7 @@ var Form = require('./form');
 var Button = require('./button');
 var InfoPage = require('./infoPage');
 var TrackDisplay = require('./trackDisplay');
+var wheelAnimation = require('./wheelAnimation');
 
 //cosmetic purposes
 import HorizontalScroll from 'react-scroll-horizontal';

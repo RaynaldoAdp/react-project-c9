@@ -1,5 +1,6 @@
 var React = require ('react');
 
+//description on the first page
 var InfoPage = function(){
 	return(
 		<div className="infoPage">

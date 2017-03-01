@@ -4,13 +4,12 @@ var actions = require('../actions/index');
 var classNames = require('classnames');
 
 // the different components
-var Form = require('./form');
 var Button = require('./button');
 var InfoPage = require('./infoPage');
 var TrackDisplay = require('./trackDisplay');
 var QueryPage = require('./queryPage');
 
-//page1 component
+//renders different components depending on the status of the state
 var MainMenu = function(props){
 	var status = props.status;
 	if(!status.menu1 && !status.menu2 && !status.menu3 && !status.menu4 && !status.postMenu4){
@@ -40,8 +39,7 @@ var MainMenu = function(props){
 
 //the main component App
 var App = React.createClass({
-	componentDidUpdate: function(){
-	},
+	//renders the different page(with different ajax requests) depending on the state
 	renderMenu1 : function(){
 		this.props.dispatch(actions.getFeaturedTracks());
 		this.props.dispatch(actions.renderMenu1());
@@ -58,6 +56,7 @@ var App = React.createClass({
 		this.props.dispatch(actions.renderMenu4());
 	},
 	render: function(){
+		//position the buttons differently depending on which page is rendered
 		var buttonClass;
    		if(!this.props.state[0].menu1 && !this.props.state[0].menu2 && !this.props.state[0].menu3 && !this.props.state[0].menu4 && !this.props.state[0].postMenu4){
    			buttonClass = "buttonClass1";
@@ -69,6 +68,7 @@ var App = React.createClass({
    			buttonClass = "buttonClass2";
    		}
 		
+		//renders the different tracks depending on which page is rendered
 		var content;
    		if(this.props.state[0].menu1 || this.props.state[0].menu2 || this.props.state[0].menu3 || this.props.state[0].postMenu4){
 	   		content = this.props.state[0].cover.map(function(data, index){

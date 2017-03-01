@@ -2,6 +2,7 @@ var React = require('react');
 var connect = require('react-redux').connect;
 var actions = require('../actions/index');
 
+//For the Make your own choice page
 var QueryPage =  React.createClass({
 	submit: function(event){
 		event.preventDefault();

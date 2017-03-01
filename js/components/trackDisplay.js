@@ -1,5 +1,6 @@
 var React = require('react');
 
+//caters for all the tracks and its description
 var TrackDisplay = function(props){
     var trackSource = props.track;
     var backgroundImage = props.image;
